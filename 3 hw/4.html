@@ -46,7 +46,13 @@
       },
     ];
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+    const result = products.filter(product => product.photos?.length > 0);
+    console.log(result);
+
+    products.sort(function (a, b) {
+      return a.price - b.price;
+    });
+    console.log(products);
   </script>
 </body>
 
