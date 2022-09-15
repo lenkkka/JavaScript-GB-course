@@ -6,7 +6,9 @@ const products = [
 ];
 //Функция для формирования верстки каждого товара
 //Добавить в выводе изображение
-const renderProduct = (product, img='https://via.placeholder.com/200*150') => {
+const img = document. createElement('img');
+img.src = 'images/hvZpaUdW98M.jpg'
+const renderProduct = (product, img) => {
     return `<div class="product-item">
                 <img src='${img}'>
                 <h3>${product.title}</h3>
