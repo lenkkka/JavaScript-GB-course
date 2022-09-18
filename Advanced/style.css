@@ -1,0 +1,45 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  outline: none;
+}
+
+header {
+  background-color: aqua;
+}
+
+.container {
+  width: 1140px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 0;
+}
+
+.products {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 40px;
+}
+
+.product-item {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(88, 173, 99);
+  text-align: center;
+}
+.product-item .buy-btn {
+  padding: 32px 0;
+}
+
+.btn-cart {
+  padding: 16px 16px;
+  color: darkblue;
+}
+
+.logo {
+  font-size: large;
+  font-weight: 300;
+}/*# sourceMappingURL=style.css.map */
