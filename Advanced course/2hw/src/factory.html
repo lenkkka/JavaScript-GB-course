@@ -1,0 +1,81 @@
+<script>
+    class Car{
+        constructor(title,price){
+            this.title = title;
+            this.price = price;
+        }
+    }
+    
+    class Factory{
+        constructor(titleFactory){
+            this.titleFactory = titleFactory;
+        }
+        
+        createCar(titleCar){
+            console.log(`Начинается сборка автомобиля ${titleCar}...`);
+            const car = new Car(titleCar,parseInt(Math.random() * 4000 + 1000));
+            return car;
+        }
+    }
+    
+    class Order{
+        /**
+        * @param count - количество авто, которое нужно изготовить
+        * @param factory - объект Завод
+        * @param diller - объект Диллер, то есть тот, кто заказывает авто
+        * @param models - массив названий авто, которые нужно изготовить
+        */
+        constructor(count,factory,models){
+             this.count = count;
+             this.factory = factory;
+             this.models = models;
+             this.cars = [];//фура для погрузки созданных автомобилей
+             this.sumOrder = 0;//сумма заказа
+        }
+        
+        runOrder(){
+            for(let i = 0;i < this.count;i++){
+                this.cars.push(this.factory.createCar(this.models[parseInt(Math.random() * this.models.length)]));
+                this.sumOrder += this.cars[i].price;
+            }
+        }
+            
+        showInfo(){
+            this.cars.forEach(car => {
+                console.log(`Автомобиль ${car.title} стоит ${car.price}`);
+            });
+            console.log(`Сумма заказа: ${this.sumOrder}`);
+            
+        }
+    }
+    
+    class Diller{
+        constructor(titleDiller,countYears){
+            this.titleDiller = titleDiller;
+            this.countYears = countYears;
+        }
+        /**
+        * @param order - объект класса Order, то есть объект, который содержит всю информацию о заказе
+        */
+        createOrder(order){
+            order.runOrder();
+            order.showInfo();
+        }
+    }
+    
+    const COUNT = parseInt(Math.random() * 20 + 10);//количесто авто
+    const FACTORY = new Factory("АвтоВаз");
+    const DILLER = new Diller("Элвис",20);
+    const ORDER = new Order(COUNT,FACTORY,["Веста","Ларгус","Гранта"]);
+    DILLER.createOrder(ORDER);//делаем заказ
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
