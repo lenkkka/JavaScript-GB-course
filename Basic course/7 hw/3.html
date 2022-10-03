@@ -30,7 +30,7 @@
       // Первый вариант решения
       return +n.toString().split('').sort((a, b) => b - a).join('');
       // Второй вариант
-      return +Array.from(n.toString(), Number).sort((a, b) => b - a).join('')
+      return +Array.from(n.toString(), Number).sort((a, b) => b - a).join('');
     }
 
     console.log(descendingOrder(42145)); // 54421
